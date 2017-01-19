@@ -39,6 +39,8 @@ fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+[ -e "$HOME/.ssh/known_hosts" ] && complete -o "default" -o "nospace" -W complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | \
+    sed -e s/,.*//g | uniq | grep -v "\["`;)" scp sftp ssh;
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
