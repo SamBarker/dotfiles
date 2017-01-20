@@ -50,5 +50,6 @@ if command -v brew >/dev/null 2>&1; then
     [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 if
 
-ssh-add -A
+#Us MACOS ssh-add to add all keys from Keychain
+/usr/bin/ssh-add -A
 
