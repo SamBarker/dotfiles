@@ -26,10 +26,16 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-	source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
+BREW_PREFIX=$(brew --prefix)
+if command brew &> /dev/null  >/dev/null  2>&1; then
+	if [ -f "$BREW_PREFIX//share/bash-completion/bash_completion" ]; then
+		source "$BREW_PREFIX/share/bash-completion/bash_completion";
+	elif [ -f /etc/bash_completion ]; then
+		source /etc/bash_completion;
+	fi
+	if [-f $BREW_PREFIX/etc/profile.d/z.sh ]; then
+		source $BREW_PREFIX/etc/profile.d/z.sh
+	fi
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
@@ -45,11 +51,6 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-if command -v brew >/dev/null 2>&1; then
-    # Load rupa's z if installed
-    [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
-if
-
-#Us MACOS ssh-add to add all keys from Keychain
+#Use MACOS ssh-add to add all keys from Keychain
 /usr/bin/ssh-add -A
 
