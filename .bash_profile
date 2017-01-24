@@ -27,13 +27,13 @@ done;
 
 # Add tab completion for many Bash commands
 BREW_PREFIX=$(brew --prefix)
-if command brew &> /dev/null  >/dev/null  2>&1; then
+if command -v brew &> /dev/null 2>&1; then
 	if [ -f "$BREW_PREFIX//share/bash-completion/bash_completion" ]; then
 		source "$BREW_PREFIX/share/bash-completion/bash_completion";
 	elif [ -f /etc/bash_completion ]; then
 		source /etc/bash_completion;
 	fi
-	if [-f $BREW_PREFIX/etc/profile.d/z.sh ]; then
+	if [ -f $BREW_PREFIX/etc/profile.d/z.sh ]; then
 		source $BREW_PREFIX/etc/profile.d/z.sh
 	fi
 fi;
