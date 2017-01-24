@@ -160,5 +160,5 @@ alias reload="exec $SHELL -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 #Maven
-alias mcit='mvn clean install -DskipTests=true -Pno-proguard'
+alias mcit='mvn -Djava.awt.headless=true clean install -DskipTests=true -Pno-proguard'
 
