@@ -51,6 +51,9 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
+#Load rbenv
+eval "$(rbenv init -)"
+
 #Use MACOS ssh-add to add all keys from Keychain
 /usr/bin/ssh-add -A
 
