@@ -234,3 +234,24 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+
+function java_home
+{
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.$1`
+  echo set JAVA_HOME too: $JAVA_HOME
+}
+
+function sshtunnel(){
+  host=$1
+  port=$2
+  ssh -C -f $host -L $port:$host:$port -N
+}
+
+function stopTunnel()
+{
+  pid=`ps -ef | grep $2:$1  | grep -v grep | awk '{ print $2 }'`
+  echo "Stopping tunnel with pid: $pid"
+  kill $pid
+}
+
