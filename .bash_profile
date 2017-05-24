@@ -56,6 +56,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 #Load rbenv
 eval "$(rbenv init -)"
 
+java_home 8
+
 #Use MACOS ssh-add to add all keys from Keychain
 /usr/bin/ssh-add -A
 
