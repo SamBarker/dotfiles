@@ -188,3 +188,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	name = Sam Barker
+	email = sam.barker@mahifx.com
