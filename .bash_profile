@@ -61,3 +61,5 @@ java_home 8
 #Use MACOS ssh-add to add all keys from Keychain
 /usr/bin/ssh-add -A
 
+export AWS_KEYCHAIN_FILE="$HOME/Library/Keychains/aws-keychain.keychain-db" #temp work around
+
