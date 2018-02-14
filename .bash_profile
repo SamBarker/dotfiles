@@ -62,4 +62,4 @@ java_home 8
 /usr/bin/ssh-add -A
 
 export AWS_KEYCHAIN_FILE="$HOME/Library/Keychains/aws-keychain.keychain-db" #temp work around
-
+export MAVEN_OPTS="-Djava.awt.headless=true -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
