@@ -164,6 +164,7 @@ alias reload="exec $SHELL -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 #Maven
+<<<<<<< HEAD
 alias mcit='mvn -T2C clean install -DskipTests=true -Pno-proguard'
 alias mci='mvn -T2C clean install -Pno-proguard'
 alias mi='mvn -T2C install -Pno-proguard'
